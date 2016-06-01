@@ -3,7 +3,9 @@ var webpack = require('webpack');
 
 module.exports = {
   // or devtool: 'eval' to debug issues with compiled output:
-  devtool: 'cheap-module-eval-source-map',
+  // devtool: 'cheap-module-eval-source-map',
+  devtool: 'eval',
+  // Entry, tells Webpack where to start building project's dependency tree.
   entry: [
     // necessary for hot reloading with IE:
     'eventsource-polyfill',
@@ -12,11 +14,13 @@ module.exports = {
     // your code:
     './src/index'
   ],
+  // Output, tells Webpack where to put the result. This is what the index.html file loads.
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/dist/'
+    publicPath: '/static/'
   },
+  // Plugins, tells Webpack which plugins to use when building the code.
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
@@ -25,6 +29,7 @@ module.exports = {
     extensions: ['', '.js', 'jsx']
   },
   module: {
+    // Loaders, tells Webpack about the different file loaders we'd like to use.
     loaders: [{
       test: /\.js|\.jsx$/,
       loaders: ['babel'],
