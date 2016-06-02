@@ -12,7 +12,7 @@ module.exports = {
     // listen to code updates emitted by hot middleware:
     'webpack-hot-middleware/client',
     // your code:
-    './src/index'
+    './src/index.jsx'
   ],
   // Output, tells Webpack where to put the result. This is what the index.html file loads.
   output: {
