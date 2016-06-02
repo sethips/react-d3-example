@@ -66,6 +66,18 @@ class HistogramBar extends Component {
     let translate = 'translate(${this.props.x}, ${this.props.y})',
         label = this.props.percent.toFixed(0) + '%';
 
+    if (this.props.percent < 1) {
+        label = this.props.percent.toFixed(2)+'%';
+    }
+
+    if (this.props.width < 20) {
+      label = label.replace('%', '');
+    }
+
+    if (this.props.width < 10) {
+      label = '';
+    }
+
     return (
       <g className="bar" transform={translate}>
         <rect width={this.props.width} height={this.props.height-2} transform="translate(0, 1)"></rect>
