@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import d3 from 'd3';
+import Histogram from '../Histogram/index.jsx';
 
 class H1BGraph extends Component {
   constructor() {
@@ -53,9 +54,22 @@ class H1BGraph extends Component {
         <h2>Loading data about 81,000 H1B visas in the software industry...</h2>
       );
     }
+
+    let params = {
+      bins: 20,
+      width: 500,
+      height: 500,
+      axisMargin: 83,
+      topMargin: 10,
+      bottomMargin: 5,
+      value: (d) => d.base_salary
+    },
+      fullWidth = 700;
+
     return (
       <div>
-        <svg>
+        <svg width={fullWidth} height={params.height}>
+          <Histogram {...params} date={this.state.rawData} />
         </svg>
       </div>
     );

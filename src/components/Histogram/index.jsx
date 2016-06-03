@@ -1,3 +1,3 @@
-import Historam from './Histogram';
+import Histogram from './Histogram.jsx';
 
-export default Historam;
+export default Histogram;

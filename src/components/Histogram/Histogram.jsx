@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import d3 from 'd3';
 
-class Historam extends Component {
+class Histogram extends Component {
   constructor(props) {
     super();
 
