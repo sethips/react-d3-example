@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import d3 from 'd3';
 
+
 class Histogram extends Component {
   constructor(props) {
     super();
@@ -44,11 +45,15 @@ class Histogram extends Component {
       width: this.widthScale(bar.y),
       height: this.yScale(bar.dx),
       key: 'histogram-bar-'+bar.x+'-'+bar.y
-    }
+    };
+
+      return (
+          <HistogramBar {...props} />
+      );
   }
 
   render() {
-    let translate = 'translate(0, $(this.props.topMargin))',
+    let translate = `translate(0, ${this.props.topMargin})`,
         bars = this.histogram(this.props.data);
 
     return (
@@ -63,7 +68,7 @@ class Histogram extends Component {
 
 class HistogramBar extends Component {
   render() {
-    let translate = 'translate(${this.props.x}, ${this.props.y})',
+    let translate = `translate(${this.props.x}, ${this.props.y})`,
         label = this.props.percent.toFixed(0) + '%';
 
     if (this.props.percent < 1) {
